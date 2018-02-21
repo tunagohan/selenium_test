@@ -1,5 +1,7 @@
 # Seleniumテスト
 
+対象URL：qiita
+
 ## install Gem
 
 ```
@@ -13,7 +15,30 @@ $ gem install dotenv
 $ brew install chromedriver
 ```
 
+## env Edit
+
+```
+$ cp env-example .env
+$ vi .env
+```
+
+## execute
+
+```
+ruby qiita.rb
+```
+
 ## Cheat Sheet
+
+### 遷移アクセス
+```ruby
+driver.navigate.to 'https://hogehogehugahuga.jp/'
+```
+
+### 指定アクセス
+```ruby
+driver.get 'https://hogehogehugahuga.jp/'
+```
 
 ### 要素のテキストを取得する
 
@@ -23,7 +48,6 @@ driver.find_element(:class, 'hogehoge').text
 # ID
 driver.find_element(:id, 'hugahuga').text
 ```
-
 
 ### 表示する
 
@@ -40,6 +64,12 @@ driver.find_element(:class, 'btn01').click
 
 # ID
 driver.find_element(:id, 'btn01').click
+```
+
+### 複数の要素を配列として取得する
+
+```ruby
+elements = driver.find_elements(:class, 'hogehoge')
 ```
 
 ### フォームに入力をする
